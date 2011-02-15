@@ -24,17 +24,18 @@ public class PhoneBook  {
     }
     
     public void phoneInterface()  {
-        String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact"};
+        String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact", "Quit"};
         int which = uD.selectIndex("Welcome to your phonebook!  What would you like to do next?", userOptions);
         switch (which)  {
-            case 0: uD.showTextMessage(listAll(), entries.size(), 2); break;
+            case 0: uD.showTextMessage(listAll(), entries.size(), 30); break;
             case 1: addEntry(uD.getString("Please type the name of the new contact"), uD.getString("Please type the number of the new contact")); break;
             case 2: changeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number to modify: "))); break;
             case 3: removeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to remove"))); break;
             case 4: uD.showMessage(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to find")).toString()); break;
+            case 5: return; break;
             default: return;
         }
-            
+        phoneInterface();
         
         
     }
