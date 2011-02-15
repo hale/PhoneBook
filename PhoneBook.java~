@@ -23,9 +23,6 @@ public class PhoneBook  {
         phoneInterface();
     }
     
-    public PhoneBook(int i)  {
-        entries = new ArrayList();
-    }
     
     public void phoneInterface()  {
         String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact", "Quit"};
@@ -40,6 +37,13 @@ public class PhoneBook  {
             default: return;
         }
         phoneInterface();
+    }
+    
+    public void addSamples(int quant)  {
+        TestClass testClass = new TestClass();
+        for (int i = 0; i < quant; i++)  {
+            addEntry(testClass.sampleName(), testClass.sampleNumber());
+        }
     }
     
     public boolean addEntry(String name, String number)  {
@@ -81,7 +85,7 @@ public class PhoneBook  {
         Collections.sort(entries);
         StringBuilder sB = new StringBuilder(25);
         for (Entry entry : entries)  {
-            sB.append(entry.toString());
+            sB.append(entry.toString()  + "\n");
         }
         return sB.toString();
     }

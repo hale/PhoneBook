@@ -28,7 +28,7 @@ public class PhoneBook  {
         String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact", "Quit"};
         int which = uD.selectIndex("Welcome to your phonebook!  What would you like to do next?", userOptions);
         switch (which)  {
-            case 0: uD.showTextMessage(listAll(), entries.size(), 30); break;
+            case 0: listAll(); break;
             case 1: addEntry(uD.getString("Please type the name of the new contact"), uD.getString("Please type the number of the new contact")); break;
             case 2: changeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number to modify: "))); break;
             case 3: removeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to remove"))); break;
@@ -37,6 +37,13 @@ public class PhoneBook  {
             default: return;
         }
         phoneInterface();
+    }
+    
+    public void addSamples(int quant)  {
+        TestClass testClass = new TestClass();
+        for (int i = 0; i < quant; i++)  {
+            addEntry(testClass.sampleName(), testClass.sampleNumber());
+        }
     }
     
     public boolean addEntry(String name, String number)  {
@@ -74,13 +81,11 @@ public class PhoneBook  {
         entry.changeNumber(number);
     }
     
-    public String listAll()  {
+    public void listAll()  {
         Collections.sort(entries);
-        StringBuilder sB = new StringBuilder(25);
         for (Entry entry : entries)  {
-            sB.append(entry.toString());
+            System.out.println(entry);
         }
-        return sB.toString();
     }
     
 

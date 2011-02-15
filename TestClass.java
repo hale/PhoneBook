@@ -6,16 +6,11 @@ public class TestClass  {
     Random rand;
     public static final char[] ALPHABET = { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
     PhoneBook phoneBook;
-    public TestClass(int quant)  {
+    public TestClass()  {
         rand = new Random();
-        phoneBook = new PhoneBook();
-        for (int i = 0; i < quant; i++)  {
-            phoneBook.addEntry(addNewNumber(), addNewName());
-        }
     }
     
-    private String addNewNumber()  {
-        rand = new Random();
+    public String sampleNumber()  {
         String phoneNumber = "01";
         for (int i = 0; i < 9; i++)  {
             phoneNumber += rand.nextInt(9);
@@ -24,12 +19,12 @@ public class TestClass  {
         return phoneNumber;
     }
     
-    private String addNewName()  {
-        rand = new Random();
+    public String sampleName()  {
         String name = "";
+        int nameSplit = rand.nextInt(3)+4;
         for (int i = 0; i < (rand.nextInt(8)+10); i++)  {
             name += ALPHABET[rand.nextInt(26)];
-            if (i == 4)  {
+            if (i == nameSplit)  {
                 name += " ";
             }
         }
