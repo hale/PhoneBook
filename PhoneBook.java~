@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import simpleIO.*;
 import java.lang.StringBuilder;
-import java.util.regex.*;
 /**
  * The PhoneBook class uses an ArrayList to collect together
  * instances of the Entry class. The phonebook class is able
@@ -47,10 +46,6 @@ public class PhoneBook  {
     }
     
     public Entry findEntry(String n)  {
-        Pattern p = Pattern.compile(n + ".");
-        
-        
-        
         for (Entry entry : entries)  {
             if (entry.getName().matches(n.toLowerCase() + ".") || entry.getNumber().matches(n.toLowerCase() + "."))  {
                 return entry;
