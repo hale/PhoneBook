@@ -23,6 +23,7 @@ public class PhoneBook  {
         phoneInterface();
     }
     
+    
     public void phoneInterface()  {
         String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact", "Quit"};
         int which = uD.selectIndex("Welcome to your phonebook!  What would you like to do next?", userOptions);
@@ -36,8 +37,6 @@ public class PhoneBook  {
             default: return;
         }
         phoneInterface();
-        
-        
     }
     
     public boolean addEntry(String name, String number)  {

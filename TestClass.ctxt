@@ -1,4 +1,8 @@
 #BlueJ class context
-comment0.params=
-comment0.target=TestClass()
-numComments=1
+comment0.params=quant
+comment0.target=TestClass(int)
+comment1.params=
+comment1.target=java.lang.String\ addNewNumber()
+comment2.params=
+comment2.target=java.lang.String\ addNewName()
+numComments=3
