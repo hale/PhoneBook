@@ -27,7 +27,7 @@ public class PhoneBook  {
         String[] userOptions = {"Browse your contacts", "Add a new contact", "Modify an existing contact", "Delete a contact", "Search for a contact"};
         int which = uD.selectIndex("Welcome to your phonebook!  What would you like to do next?", userOptions);
         switch (which)  {
-            case 0: listAllSorted(); break;
+            case 0: uD.showTextMessage(listAll(), entries.size(), 30); break;
             case 1: addEntry(uD.getString("Please type the name of the new contact"), uD.getString("Please type the number of the new contact")); break;
             case 2: changeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number to modify: "))); break;
             case 3: removeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to remove"))); break;
@@ -47,12 +47,10 @@ public class PhoneBook  {
     }
     
     public Entry findEntry(String n)  {
-        Pattern p = Pattern.compile(n + ".");
-        
-        
-        
+        Pattern p = Pattern.compile(n);
         for (Entry entry : entries)  {
-            if (entry.getName().matches(n.toLowerCase() + ".") || entry.getNumber().matches(n.toLowerCase() + "."))  {
+            Matcher m = p.matcher(entry.getName().toLowerCase());
+            if (m.find())  {
                 return entry;
             }
         }
@@ -77,6 +75,7 @@ public class PhoneBook  {
     }
     
     public String listAll()  {
+        Collections.sort(entries);
         StringBuilder sB = new StringBuilder(25);
         for (Entry entry : entries)  {
             sB.append(entry.toString());
@@ -84,10 +83,5 @@ public class PhoneBook  {
         return sB.toString();
     }
     
-    public void listAllSorted()  {
-        Collections.sort(entries);
-        listAll();
-        
-    }
 
 }

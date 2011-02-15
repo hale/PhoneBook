@@ -17,6 +17,4 @@ comment7.params=entry\ number
 comment7.target=void\ changeNumber(Entry,\ java.lang.String)
 comment8.params=
 comment8.target=java.lang.String\ listAll()
-comment9.params=
-comment9.target=void\ listAllSorted()
-numComments=10
+numComments=9
