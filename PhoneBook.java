@@ -30,9 +30,9 @@ public class PhoneBook  {
         switch (which)  {
             case 0: listAll(); break;
             case 1: addEntry(uD.getString("Please type the name of the new contact"), uD.getString("Please type the number of the new contact")); break;
-            case 2: changeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number to modify: "))); break;
-            case 3: removeEntry(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to remove"))); break;
-            case 4: uD.showMessage(findEntry(uD.getString("Please type the first few characters of the contact or number you wish to find")).toString()); break;
+            case 2: changeEntry(findEntry(uD.getString("Please type the first few characters of the contact you wish to modify: "))); break;
+            case 3: removeEntry(findEntry(uD.getString("Please type the first few characters of the contact you wish to remove"))); break;
+            case 4: uD.showMessage(findEntry(uD.getString("Please type the first few characters of the contact you wish to find")).toString()); break;
             case 5: return;
             default: return;
         }
@@ -53,8 +53,13 @@ public class PhoneBook  {
         return true;
     }
     
+    /**
+     * The findEntry() method uses regular expressions to find any contact that contains
+     * the search string.  The first ocurrence of the 
+     */
     public Entry findEntry(String n)  {
         Pattern p = Pattern.compile(n);
+        Collections.sort(entries);
         for (Entry entry : entries)  {
             Matcher m = p.matcher(entry.getName().toLowerCase());
             if (m.find())  {

@@ -14,7 +14,6 @@ public class TestClass  {
         String phoneNumber = "01";
         for (int i = 0; i < 9; i++)  {
             phoneNumber += rand.nextInt(9);
-        
         }
         return phoneNumber;
     }

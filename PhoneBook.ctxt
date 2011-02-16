@@ -9,6 +9,7 @@ comment3.params=name\ number
 comment3.target=boolean\ addEntry(java.lang.String,\ java.lang.String)
 comment4.params=n
 comment4.target=Entry\ findEntry(java.lang.String)
+comment4.text=\n\ The\ findEntry()\ method\ uses\ regular\ expressions\ to\ find\ any\ contact\ that\ contains\n\ the\ search\ string.\ \ The\ first\ ocurrence\ of\ the\ \n
 comment5.params=entry
 comment5.target=boolean\ removeEntry(Entry)
 comment6.params=entry

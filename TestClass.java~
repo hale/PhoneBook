@@ -24,7 +24,7 @@ public class TestClass  {
         int nameSplit = rand.nextInt(3)+4;
         for (int i = 0; i < (rand.nextInt(8)+10); i++)  {
             name += ALPHABET[rand.nextInt(26)];
-            if (i == nameSplit  {
+            if (i == nameSplit)  {
                 name += " ";
             }
         }
